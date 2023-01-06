@@ -1,19 +1,12 @@
 import "./AddForm.css";
-import { useEffect, useState } from "react";
 
-export default function AddForm({ bootcamps }) {
-  const [bootcampNames, setBootcampNames] = useState([]);
-
-  useEffect(() => {
-    const names = bootcamps.map((bootcamp) => bootcamp.bootcamp);
-    setBootcampNames(names);
-  }, [bootcamps]);
-
+export default function AddForm({ bootcampNames }) {
   function refreshPage() {
     window.location.reload(true);
   }
 
   function handleSubmit(event) {
+    event.preventDefault();
     const firstName = event.target.firstName.value;
     const lastName = event.target.lastName.value;
     const developerFullName = firstName + " " + lastName;

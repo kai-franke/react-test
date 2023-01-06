@@ -5,8 +5,13 @@ import AddForm from "./components/AddForm/AddForm";
 
 
 function App() {
-  
   const [allBootcamps, setAllBootcamps] = useState([]);
+  const [bootcampNames, setBootcampNames] = useState([]);
+
+  useEffect(() => {
+    const names = allBootcamps.map((bootcamp) => bootcamp.bootcamp);
+    setBootcampNames(names);
+  }, [allBootcamps]);
 
   async function fetchData() {
     try {
@@ -25,8 +30,8 @@ function App() {
   return (
     <div className="App">
       <main>
-        <AddForm bootcamps={allBootcamps} />
-        <BootcampsGallery bootcamps={allBootcamps} />
+        <AddForm bootcampNames={bootcampNames} />
+        <BootcampsGallery bootcamps={allBootcamps} bootcampNames={bootcampNames}/>
       </main>
     </div>
   );

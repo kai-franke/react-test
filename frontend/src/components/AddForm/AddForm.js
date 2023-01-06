@@ -1,19 +1,12 @@
 import "./AddForm.css";
-import { useEffect, useState } from "react";
 
-export default function AddForm({ bootcamps }) {
-  const [bootcampNames, setBootcampNames] = useState([]);
-
-  useEffect(() => {
-    const names = bootcamps.map((bootcamp) => bootcamp.bootcamp);
-    setBootcampNames(names);
-  }, [bootcamps]);
-
+export default function AddForm({ bootcampNames }) {
   function refreshPage() {
     window.location.reload(true);
   }
 
   function handleSubmit(event) {
+    event.preventDefault();
     const firstName = event.target.firstName.value;
     const lastName = event.target.lastName.value;
     const developerFullName = firstName + " " + lastName;
@@ -31,7 +24,7 @@ export default function AddForm({ bootcamps }) {
   }
 
   return (
-    <form id="newDeveloperForm" onSubmit={handleSubmit}>
+    <form id="addDeveloperForm" onSubmit={handleSubmit}>
       <h2 className="form-headline">Add new developer</h2>
       <label>
         First Name:
@@ -40,6 +33,7 @@ export default function AddForm({ bootcamps }) {
           name="firstName"
           placeholder="enter first name"
           aria-placeholder="enter first name"
+          className="addDeveloperFirstNameInput"
         />
       </label>
       <label>
@@ -49,6 +43,7 @@ export default function AddForm({ bootcamps }) {
           name="lastName"
           placeholder="enter last name"
           aria-placeholder="enter last name"
+          className="addDeveloperLastNameInput"
         />
       </label>
       <label>
@@ -61,7 +56,7 @@ export default function AddForm({ bootcamps }) {
           ))}
         </select>
       </label>
-      <button type="submit" form="newDeveloperForm">
+      <button type="submit" form="addDeveloperForm" id="addDeveloperBtn">
         Add Developer
       </button>
     </form>

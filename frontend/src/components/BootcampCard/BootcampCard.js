@@ -16,7 +16,7 @@ export default function BootcampCard({ name, instructors, developers }) {
       <ul className="--dev">
         {developers &&
           developers.map((developer) => (
-            <BootcampCardName key={developer.id} role={developer} />
+            <BootcampCardName key={developer.id} role={developer} isDeveloper />
           ))}
       </ul>
     </section>

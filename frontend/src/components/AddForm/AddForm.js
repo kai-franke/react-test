@@ -1,14 +1,32 @@
+import { useEffect, useState } from "react";
 import "./AddForm.css";
 
 export default function AddForm({ bootcampNames }) {
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasError(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [hasError]);
+
   function refreshPage() {
     window.location.reload(true);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
+
     const firstName = event.target.firstName.value;
     const lastName = event.target.lastName.value;
+
+    if (firstName === "" || lastName === "") {
+      console.error("Please fill in the fields for first AND last name.");
+      setHasError(true);
+      return;
+    }
+
     const developerFullName = firstName + " " + lastName;
     const bootcampToChange = event.target.bootcampNames.value;
 
@@ -46,6 +64,9 @@ export default function AddForm({ bootcampNames }) {
           className="addDeveloperLastNameInput"
         />
       </label>
+      <p className={hasError ? "errorMessage" : "hidden"}>
+        Please fill in the fields for first AND last name.
+      </p>
       <label>
         Select bootcamp:
         <select id="bootcampNames" name="bootcampNames">

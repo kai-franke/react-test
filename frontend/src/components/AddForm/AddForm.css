@@ -27,3 +27,13 @@ button {
   border-radius: 5px;
   justify-self: center;
 }
+
+.errorMessage {
+  background-color: red;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}

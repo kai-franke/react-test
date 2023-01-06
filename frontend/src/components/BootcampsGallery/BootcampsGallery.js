@@ -44,7 +44,7 @@ export default function BootcampsGallery({ bootcamps, bootcampNames }) {
         </select>
       </label>
       <h2 className="gallery-headline">Gallery</h2>
-      <div className="flex-container">
+      <div className="gallery" >
         {filteredBootcamps.map((bootcamp, index) => (
           <BootcampCard
             key={index}

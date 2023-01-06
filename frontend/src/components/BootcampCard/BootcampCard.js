@@ -2,7 +2,7 @@ import "./BootcampCard.css";
 
 export default function BootcampCard({ name, instructors, developers }) {
   return (
-    <section>
+    <section className="bootcamp">
       <h3>{name}</h3>
       <h4>Instructors:</h4>
       <ul>
@@ -12,7 +12,7 @@ export default function BootcampCard({ name, instructors, developers }) {
           ))}
       </ul>
       <h4>Developers:</h4>
-      <ul>
+      <ul className="--dev">
         {developers &&
           developers.map((developer) => (
             <li key={developer.id}>{developer.name}</li>

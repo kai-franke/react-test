@@ -24,7 +24,7 @@ export default function AddForm({ bootcampNames }) {
   }
 
   return (
-    <form id="newDeveloperForm" onSubmit={handleSubmit}>
+    <form id="addDeveloperForm" onSubmit={handleSubmit}>
       <h2 className="form-headline">Add new developer</h2>
       <label>
         First Name:
@@ -33,6 +33,7 @@ export default function AddForm({ bootcampNames }) {
           name="firstName"
           placeholder="enter first name"
           aria-placeholder="enter first name"
+          className="addDeveloperFirstNameInput"
         />
       </label>
       <label>
@@ -42,6 +43,7 @@ export default function AddForm({ bootcampNames }) {
           name="lastName"
           placeholder="enter last name"
           aria-placeholder="enter last name"
+          className="addDeveloperLastNameInput"
         />
       </label>
       <label>
@@ -54,7 +56,7 @@ export default function AddForm({ bootcampNames }) {
           ))}
         </select>
       </label>
-      <button type="submit" form="newDeveloperForm">
+      <button type="submit" form="addDeveloperForm" id="addDeveloperBtn">
         Add Developer
       </button>
     </form>

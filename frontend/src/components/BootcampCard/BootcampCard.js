@@ -1,3 +1,4 @@
+import BootcampCardName from "../BootcampCardName/BootcampCardName";
 import "./BootcampCard.css";
 
 export default function BootcampCard({ name, instructors, developers }) {
@@ -8,14 +9,14 @@ export default function BootcampCard({ name, instructors, developers }) {
       <ul>
         {instructors &&
           instructors.map((instructor) => (
-            <li key={instructor.id}>{instructor.name}</li>
+            <BootcampCardName key={instructor.id} role={instructor} />
           ))}
       </ul>
       <h4>Developers:</h4>
       <ul className="--dev">
         {developers &&
           developers.map((developer) => (
-            <li key={developer.id}>{developer.name}</li>
+            <BootcampCardName key={developer.id} role={developer} />
           ))}
       </ul>
     </section>

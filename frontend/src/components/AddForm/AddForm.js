@@ -9,14 +9,15 @@ export default function AddForm({ bootcamps }) {
     setBootcampNames(names);
   }, [bootcamps]);
 
+  function refreshPage() {
+    window.location.reload(true);
+  }
+
   function handleSubmit(event) {
-    event.preventDefault();
     const firstName = event.target.firstName.value;
     const lastName = event.target.lastName.value;
     const developerFullName = firstName + " " + lastName;
     const bootcampToChange = event.target.bootcampNames.value;
-    console.log("developerFullName", developerFullName);
-    console.log("bootcampToChange", bootcampToChange);
 
     fetch(`http://localhost:3001/bootcamps/${bootcampToChange}`, {
       method: "POST",
@@ -25,21 +26,33 @@ export default function AddForm({ bootcamps }) {
       },
       body: JSON.stringify({ name: developerFullName }),
     });
+
+    refreshPage();
   }
 
   return (
     <form id="newDeveloperForm" onSubmit={handleSubmit}>
-      <h2>Add new developer</h2>
+      <h2 className="form-headline">Add new developer</h2>
       <label>
-        <span>First Name:</span>
-        <input type="text" name="firstName" />
+        First Name:
+        <input
+          type="text"
+          name="firstName"
+          placeholder="enter first name"
+          aria-placeholder="enter first name"
+        />
       </label>
       <label>
-        <span>Last Name:</span>
-        <input type="text" name="lastName" />
+        Last Name:
+        <input
+          type="text"
+          name="lastName"
+          placeholder="enter last name"
+          aria-placeholder="enter last name"
+        />
       </label>
       <label>
-        <span>Select bootcamp:</span>
+        Select bootcamp:
         <select id="bootcampNames" name="bootcampNames">
           {bootcampNames.map((bootcampName, index) => (
             <option key={index} value={bootcampName}>

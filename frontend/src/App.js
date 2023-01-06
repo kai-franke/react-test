@@ -1,9 +1,9 @@
 import "./App.css";
-import BootcampCard from "./components/BootcampCard/BootcampCard.js";
 import { useState, useEffect } from "react";
+import BootcampsGallery from "./components/BootcampsGallery/BootcampsGallery.js";
 
 function App() {
-  const [allBootcamps, setAllBootcamps] = useState("");
+  const [allBootcamps, setAllBootcamps] = useState([{}, {}]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,12 +18,10 @@ function App() {
     fetchData();
   }, []);
 
-  console.log("allBootcamps", allBootcamps);
-
   return (
     <div className="App">
       <main>
-        <BootcampCard />
+        <BootcampsGallery bootcamps={allBootcamps} />
       </main>
     </div>
   );

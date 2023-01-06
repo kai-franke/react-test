@@ -1,0 +1,19 @@
+.flex-container {
+  display: flex;
+  gap: 1rem;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+ul {
+  all: unset;
+  list-style-type: none;
+}
+
+section {
+  width: 10rem;
+}
+
+h2 {
+  text-align: center;
+}

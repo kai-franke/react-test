@@ -1,20 +1,23 @@
 import "./BootcampCard.css";
 
-export default function BootcampCard() {
+export default function BootcampCard({ name, instructors, developers }) {
   return (
-    <>
-      <h2>Bootcamp Name</h2>
-      <h3>Instructors:</h3>
+    <section>
+      <h3>{name}</h3>
+      <h4>Instructors:</h4>
       <ul>
-        <li>Name 1</li>
-        <li>Name 2</li>
+        {instructors &&
+          instructors.map((instructor) => (
+            <li key={instructor.id}>{instructor.name}</li>
+          ))}
       </ul>
-      <h3>Developers:</h3>
+      <h4>Developers:</h4>
       <ul>
-        <li>Name 1</li>
-        <li>Name 2</li>
-        <li>Name 3</li>
+        {developers &&
+          developers.map((developer) => (
+            <li key={developer.id}>{developer.name}</li>
+          ))}
       </ul>
-    </>
+    </section>
   );
 }

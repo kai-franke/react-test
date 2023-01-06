@@ -20,13 +20,12 @@ export default function AddForm({ bootcampNames }) {
 
     const firstName = event.target.firstName.value;
     const lastName = event.target.lastName.value;
-
+    // check if first or last name input is empty and show error message
     if (firstName === "" || lastName === "") {
       console.error("Please fill in the fields for first AND last name.");
       setHasError(true);
       return;
     }
-
     const developerFullName = firstName + " " + lastName;
     const bootcampToChange = event.target.bootcampNames.value;
 

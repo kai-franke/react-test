@@ -1,0 +1,29 @@
+form {
+  display: grid;
+}
+
+.form-headline {
+  font-size: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #000;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  margin-bottom: 1rem;
+  margin-top: 0.3rem;
+}
+
+button {
+  margin-top: 1rem;
+  background-color: lightskyblue;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 5px;
+  justify-self: center;
+}

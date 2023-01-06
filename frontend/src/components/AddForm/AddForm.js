@@ -17,6 +17,14 @@ export default function AddForm({ bootcamps }) {
     const bootcampToChange = event.target.bootcampNames.value;
     console.log("developerFullName", developerFullName);
     console.log("bootcampToChange", bootcampToChange);
+
+    fetch(`http://localhost:3001/bootcamps/${bootcampToChange}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: developerFullName }),
+    });
   }
 
   return (

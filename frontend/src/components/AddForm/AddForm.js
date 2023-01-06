@@ -9,16 +9,26 @@ export default function AddForm({ bootcamps }) {
     setBootcampNames(names);
   }, [bootcamps]);
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    const firstName = event.target.firstName.value;
+    const lastName = event.target.lastName.value;
+    const developerFullName = firstName + " " + lastName;
+    const bootcampToChange = event.target.bootcampNames.value;
+    console.log("developerFullName", developerFullName);
+    console.log("bootcampToChange", bootcampToChange);
+  }
+
   return (
-    <form name="addNewDeveloper">
+    <form id="newDeveloperForm" onSubmit={handleSubmit}>
       <h2>Add new developer</h2>
       <label>
         <span>First Name:</span>
-        <input />
+        <input type="text" name="firstName" />
       </label>
       <label>
         <span>Last Name:</span>
-        <input />
+        <input type="text" name="lastName" />
       </label>
       <label>
         <span>Select bootcamp:</span>
@@ -30,6 +40,9 @@ export default function AddForm({ bootcamps }) {
           ))}
         </select>
       </label>
+      <button type="submit" form="newDeveloperForm">
+        Add Developer
+      </button>
     </form>
   );
 }

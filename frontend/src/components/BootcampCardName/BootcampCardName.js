@@ -28,7 +28,10 @@ export default function BootcampCardName({
         <p>{role.name}</p>
       )}
       {toggle && (
-        <button className="delete-button" onClick={() => handleDelete(bootcampName, role.id)}>
+        <button
+          className="delete-button"
+          onClick={() => handleDelete(bootcampName, role.id)}
+        >
           delete
         </button>
       )}

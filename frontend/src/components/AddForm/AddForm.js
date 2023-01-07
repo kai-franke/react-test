@@ -13,7 +13,6 @@ export default function AddForm({ bootcampNames, setUpdate }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
     const firstName = event.target.firstName.value;
     const lastName = event.target.lastName.value;
     // check if first or last name input is empty and show error message
@@ -22,7 +21,7 @@ export default function AddForm({ bootcampNames, setUpdate }) {
       setHasError(true);
       return;
     }
-    const developerFullName = firstName + " " + lastName;
+    const fullName = firstName.concat(" ", lastName);
     const bootcampToChange = event.target.bootcampNames.value;
 
     fetch(`http://localhost:3001/bootcamps/${bootcampToChange}`, {
@@ -30,7 +29,7 @@ export default function AddForm({ bootcampNames, setUpdate }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name: developerFullName }),
+      body: JSON.stringify({ name: fullName }),
     })
       .then((resp) => resp.json())
       .then((data) => setUpdate(data));

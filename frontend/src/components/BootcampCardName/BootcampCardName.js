@@ -1,11 +1,21 @@
 import { useState } from "react";
 import "./BootcampCardName.css";
 
-export default function BootcampCardName({ isDeveloper, role }) {
+export default function BootcampCardName({
+  isDeveloper,
+  role,
+  bootcampName,
+  setUpdate,
+}) {
   const [toggle, setToggle] = useState(false);
 
-  function handleDelete(id) {
-    console.log("delete", id);
+  function handleDelete(bootcamp, id) {
+    fetch(`http://localhost:3001/bootcamps/${bootcamp}/developers/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(setUpdate(id));
   }
 
   return (
@@ -17,7 +27,11 @@ export default function BootcampCardName({ isDeveloper, role }) {
       ) : (
         <p>{role.name}</p>
       )}
-      {toggle && <button onClick={() => handleDelete(role.id)}>delete</button>}
+      {toggle && (
+        <button onClick={() => handleDelete(bootcampName, role.id)}>
+          delete
+        </button>
+      )}
     </li>
   );
 }

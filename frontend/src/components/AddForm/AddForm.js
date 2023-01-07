@@ -11,10 +11,6 @@ export default function AddForm({ bootcampNames, setUpdate }) {
     return () => clearTimeout(timer);
   }, [hasError]);
 
-  function refreshPage() {
-    window.location.reload(true);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
 

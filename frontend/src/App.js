@@ -34,6 +34,7 @@ function App() {
         <BootcampsGallery
           bootcamps={allBootcamps}
           bootcampNames={bootcampNames}
+          setUpdate={setUpdate}
         />
       </main>
     </div>

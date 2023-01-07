@@ -1,0 +1,10 @@
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.delete-button {
+  margin: 0;
+}

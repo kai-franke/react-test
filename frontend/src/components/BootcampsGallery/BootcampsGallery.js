@@ -2,7 +2,7 @@ import "./BootcampsGallery.css";
 import BootcampCard from "../BootcampCard/BootcampCard";
 import { useEffect, useState } from "react";
 
-export default function BootcampsGallery({ bootcamps, bootcampNames }) {
+export default function BootcampsGallery({ bootcamps, bootcampNames, setUpdate }) {
   const [bootcampFilterOption, setBootcampFilterOption] = useState("all");
   const [filteredBootcamps, setFilteredBootcamps] = useState(bootcamps);
 
@@ -51,6 +51,7 @@ export default function BootcampsGallery({ bootcamps, bootcampNames }) {
             name={bootcamp.bootcamp}
             instructors={bootcamp.instructors}
             developers={bootcamp.developers}
+            setUpdate={setUpdate}
           />
         ))}
       </div>

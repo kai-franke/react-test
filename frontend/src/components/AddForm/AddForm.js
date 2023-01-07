@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./AddForm.css";
 
-export default function AddForm({ bootcampNames }) {
+export default function AddForm({ bootcampNames, setUpdate }) {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
@@ -10,10 +10,6 @@ export default function AddForm({ bootcampNames }) {
     }, 5000);
     return () => clearTimeout(timer);
   }, [hasError]);
-
-  function refreshPage() {
-    window.location.reload(true);
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -35,9 +31,9 @@ export default function AddForm({ bootcampNames }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name: developerFullName }),
-    });
-
-    refreshPage();
+    })
+      .then((resp) => resp.json())
+      .then((data) => setUpdate(data));
   }
 
   return (

@@ -4,6 +4,7 @@ section {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   text-align: left;
   padding: 1rem;
+  width: 300px;
 }
 
 h3 {
@@ -11,9 +12,5 @@ h3 {
 }
 
 h4 {
-  margin: 1rem 0 0 0;
-}
-
-li {
-  margin: 0.5rem 0 0 0;
+  margin: 2rem 0 0 0;
 }

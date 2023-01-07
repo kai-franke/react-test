@@ -4,6 +4,7 @@ section {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   text-align: left;
   padding: 1rem;
+  width: 300px;
 }
 
 h3 {

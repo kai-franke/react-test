@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 import BootcampsGallery from "./components/BootcampsGallery/BootcampsGallery.js";
 import AddForm from "./components/AddForm/AddForm";
 
-
 function App() {
   const [allBootcamps, setAllBootcamps] = useState([]);
   const [bootcampNames, setBootcampNames] = useState([]);
+  const [update, setUpdate] = useState([]);
 
   useEffect(() => {
     const names = allBootcamps.map((bootcamp) => bootcamp.bootcamp);
@@ -25,13 +25,16 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [update]);
 
   return (
     <div className="App">
       <main>
-        <AddForm bootcampNames={bootcampNames} />
-        <BootcampsGallery bootcamps={allBootcamps} bootcampNames={bootcampNames}/>
+        <AddForm bootcampNames={bootcampNames} setUpdate={setUpdate}/>
+        <BootcampsGallery
+          bootcamps={allBootcamps}
+          bootcampNames={bootcampNames}
+        />
       </main>
     </div>
   );

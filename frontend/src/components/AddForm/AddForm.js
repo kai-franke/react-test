@@ -34,6 +34,8 @@ export default function AddForm({ bootcampNames, setUpdate }) {
     })
       .then((resp) => resp.json())
       .then((data) => setUpdate(data));
+
+    event.target.reset();
   }
 
   return (

@@ -15,7 +15,7 @@ export default function BootcampCardName({
       headers: {
         "Content-Type": "application/json",
       },
-    }).then(setUpdate(Math.random()));
+    }).then(() => setUpdate({ id: Math.random() }));
   }
 
   return (
